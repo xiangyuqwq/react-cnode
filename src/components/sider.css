@@ -2,6 +2,14 @@
   width: 290px;
   float: right;
 }
+
+@media (max-width: 979px){
+  .sider {
+    display: none;
+  }
+}
+
+
 .panel {
   font-size: 13px;
   margin-bottom: 13px;
@@ -18,7 +26,7 @@
   background-color: #fff;
   line-height: 2em;
 }
-.inner p {
+p {
   margin: 0 0 10px;
 }
 ol {
@@ -27,6 +35,8 @@ ol {
 }
 li {
   line-height: 2em;
+  display: inline;
+  list-style: none;
 }
 .sep10 {
   height: 10px;
@@ -44,15 +54,6 @@ a {
   font-size: 14px;
   transition: all .2s ease-in-out;
   cursor: pointer;
-  letter-spacing: 2px;
-  box-shadow: none;
-  border-radius: 3px;
-  line-height: 2em;
-  vertical-align: middle;
-  color: #fff;
-  background-color: #5bc0de;
-}
-cursor { 
   letter-spacing: 2px;
   box-shadow: none;
   border-radius: 3px;

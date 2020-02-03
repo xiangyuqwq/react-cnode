@@ -14,7 +14,7 @@ html body {
   background: #444444;
 }
 
-@media (max-width: 600px){
+@media (max-width: 979px){
   .Nav {
     height: 80px;
   }
@@ -42,7 +42,7 @@ html body {
   text-align: center;
 }
 
-@media (max-width: 600px){
+@media (max-width: 979px){
   .navcontain {
     margin: auto;
     margin-top: 5px;
@@ -67,10 +67,12 @@ html body {
   font-size: 13px
 }
 
-.content {
+.main {
   width: 90%;
-  max-width: 1400px;
-  min-width: 960px;
   margin: 15px auto;
-  min-height: 400px;
+}
+
+.content {
+  padding: 0;
+  margin-right: 305px;
 }

@@ -12,7 +12,7 @@ export default function Sidebar() {
             <a href="/signin">登录</a>或<a href="/signup">注册</a>
             也可以
             <a href="/auth/github">
-              <span class="span-info">通过 GitHub 登录</span>
+              <span className="span-info">通过 GitHub 登录</span>
             </a>
           </div>
         </div>

@@ -15,15 +15,17 @@ export default function App() {
   return (
     <Router history={history}>
       <Nav />
-      <div className="content">
+      <div className="main">
         <Sidebar />
-        <Switch>
-          <Route path="/" exact component={HomePage} />
-          <Route path="/api" component={Api} />
-          <Route path="/regist" component={Regist} />
-          <Route path="/about" component={Abouts} />
-          <Route path="/login" component={Login} />
-        </Switch>
+        <div className="content">
+          <Switch>
+            <Route path="/" exact component={HomePage} />
+            <Route path="/api" component={Api} />
+            <Route path="/regist" component={Regist} />
+            <Route path="/about" component={Abouts} />
+            <Route path="/login" component={Login} />
+          </Switch>
+        </div>
       </div>
       <Footer />
     </Router>
