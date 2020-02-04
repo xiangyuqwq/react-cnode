@@ -76,3 +76,14 @@ html body {
   padding: 0;
   margin-right: 305px;
 }
+
+@media (max-width: 979px) {
+  .main, .content {
+      width: 100%;
+      min-width: 0;
+  }
+  .main {
+    margin: 20px auto;
+    min-height: 0;
+  }
+}

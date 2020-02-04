@@ -13,6 +13,7 @@
 .panel {
   font-size: 13px;
   margin-bottom: 13px;
+  width: 100%;
 }
 .cnode-app-download {
   text-align: center;

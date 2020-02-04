@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, Router } from "react-router-dom";
+import { Switch, Route, HashRouter as Router, } from "react-router-dom";
 import Api from "./components/Api";
 import Regist from "./components/Regist";
 import Login from "./components/Login";
@@ -8,12 +8,11 @@ import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import HomePage from "./components/HomePage";
-import history from "./history";
 import "./App.css";
 
 export default function App() {
   return (
-    <Router history={history}>
+    <Router>
       <Nav />
       <div className="main">
         <Sidebar />
