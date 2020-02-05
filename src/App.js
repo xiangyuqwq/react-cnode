@@ -1,9 +1,9 @@
 import React from "react";
 import { Switch, Route, HashRouter as Router, } from "react-router-dom";
-import Api from "./components/Api";
-import Regist from "./components/Regist";
-import Login from "./components/Login";
-import Abouts from "./components/Abouts";
+import Api from "./components/nav/Api";
+import GetStart from "./components/nav/GetStart";
+import Login from "./components/nav/Login";
+import Abouts from "./components/nav/Abouts";
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
@@ -20,8 +20,9 @@ export default function App() {
         <div className="content">
           <Switch>
             <Route path="/" exact component={HomePage} />
+            <Route path="/tab/:type" component={HomePage} />
             <Route path="/api" component={Api} />
-            <Route path="/regist" component={Regist} />
+            <Route path="/getstart" component={GetStart} />
             <Route path="/about" component={Abouts} />
             <Route path="/login" component={Login} />
             <Route path="/topic/:id" component={Topic} />

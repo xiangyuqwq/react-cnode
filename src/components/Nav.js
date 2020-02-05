@@ -8,21 +8,22 @@ export default function Nav() {
         <div className="logo">
           <img src={require("../assets/img/logo.png")} alt="logo" />
         </div>
-        <ul className="navcontain">
+        <ul className="navcontain nav" style={{float: 'right'}}>
           <li>
             <Link to="/">首页</Link>
           </li>
           <li>
-            <Link to="api">API</Link>
+            <Link to="/getstart">新手入门</Link>
           </li>
           <li>
-            <Link to="about">关于</Link>
+            <Link to="/api">API</Link>
           </li>
           <li>
-            <Link to="regist">注册</Link>
+            <Link to="/about">关于</Link>
           </li>
+          
           <li>
-            <Link to="login">登录</Link>
+            <Link to="/login">登录</Link>
           </li>
         </ul>
       </div>

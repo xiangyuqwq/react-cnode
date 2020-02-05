@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./sider.css";
 
 export default function Sidebar() {
@@ -9,11 +10,11 @@ export default function Sidebar() {
           <p>CNode: Node.js专业中文社区</p>
           <div>
             您可以
-            <a href="/signin">登录</a>或<a href="/signup">注册</a>
+            <Link to="/login">登录</Link>或<Link to="/regist">注册</Link>
             也可以
-            <a href="/auth/github">
-              <span className="span-info">通过 GitHub 登录</span>
-            </a>
+            <Link to="/login" className="span-info" style={{color: '#fff'}}>
+              通过 GitHub 登录
+            </Link>
           </div>
         </div>
       </div>

@@ -1,45 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { Link } from "react-router-dom";
 import api from "../api";
+import TopicHeader from "./TopicHeader";
 import "./homepage.css";
 
-function TopicHeader() {
-  var [tab, setTab] = useState({})
-  return (
-    <div className="header">
-      <Link
-        to="/"
-        className={tab === "all" ? "topic-tab current-tab" : "topic-tab"}
-      >
-        全部
-      </Link>
-      <Link
-        to="/tab/good"
-        className={tab === "good" ? "topic-tab current-tab" : "topic-tab"}
-      >
-        精华
-      </Link>
-      <Link
-        to="/"
-        className={tab === "share" ? "topic-tab current-tab" : "topic-tab"}
-      >
-        分享
-      </Link>
-      <Link
-        to="/"
-        className={tab === "ask" ? "topic-tab current-tab" : "topic-tab"}
-      >
-        问答
-      </Link>
-      <Link
-        to="/"
-        className={tab === "job" ? "topic-tab current-tab" : "topic-tab"}
-      >
-        招聘
-      </Link>
-    </div>
-  );
-}
 
 function TopicItem({ item }) {
   return (
@@ -60,6 +24,7 @@ function TopicItem({ item }) {
         />
       </div>
       <div className="topic-title-wrapper">
+        <span className={(item.top || item.good) ? 'tag put-top': ' tag tab-common' }>{tabDomType(item)}</span>
         <Link className="topic-title" to={"/topic/" + item.id}>
           {item.title}
         </Link>
@@ -68,42 +33,58 @@ function TopicItem({ item }) {
   );
 }
 
-export default class HomePage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      list: []
-    };
-  }
+function tabDomType(item) {
+    var tabs = {
+      'share': '分享',
+      'ask': '问答',
+      'job': '招聘',
+    }
+    if (item.top) {
+      return "置顶";
+    } else if (item.good) {
+      return "精品";
+    } else {
+      return tabs[item.tab];
+    }
+}
+ 
+export default function HomePage(props) {
+  var [tabType, setTabType] = useState("");
+  var [list, setList] = useState([]);
 
-  componentDidMount() {
-    api.get("/topics").then(res => {
-      console.log(res.data.data);
-      this.setState({
-        list: res.data.data
+  useEffect(() => {
+    const type = props.match.params.type;
+    setTabType(type);
+    // console.log(type)
+    if (type) {
+      api.get(`/topics?tab=${type}`).then(res => {
+          setList(res.data.data);
       });
+    }else {
+      api.get(`/topics?tab=all`).then(res => {
+        setList(res.data.data);
     });
-  }
+    }
+  }, [props, tabType]);
 
-  componentWillUnmount() {}
-
-  render() {
-    return (
-      <div className="panel">
-        <TopicHeader />
-        <div className="inner no-padding">
-          <div className="topic_list">
-            {this.state.list.map(item => {
+  return (
+    <div className="panel">
+      <TopicHeader />
+      <div className="inner no-padding">
+        <div className="topic_list">
+          <Suspense fallback={<div>loading...</div>}>
+            {list.map(item => {
+              console.log(item)
               return <TopicItem key={item.id} item={item} />;
             })}
-          </div>
-          {/* <div className="pagination" current_page="1">
+          </Suspense>
+        </div>
+        {/* <div className="pagination" current_page="1">
             <ul>
               <li className="disabled"></li>
             </ul>
           </div> */}
-        </div>
       </div>
-    );
-  }
+    </div>
+  );
 }

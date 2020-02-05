@@ -118,3 +118,23 @@ img {
     margin-right: .5em;
     border-radius: 3px;
 }
+
+.topic-tab .current-tab {
+    background-color: #80bd01;
+    color: #fff;
+    padding: 3px 4px;
+    border-radius: 3px;
+}
+
+.tag {
+    background-color: #e5e5e5;
+    color: #999;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.put-top {
+    background-color: #80bd01;
+    color: #fff;
+}
