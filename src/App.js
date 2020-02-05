@@ -8,6 +8,7 @@ import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import HomePage from "./components/HomePage";
+import Topic from "./components/Topic";
 import "./App.css";
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
             <Route path="/regist" component={Regist} />
             <Route path="/about" component={Abouts} />
             <Route path="/login" component={Login} />
+            <Route path="/topic/:id" component={Topic} />
           </Switch>
         </div>
       </div>

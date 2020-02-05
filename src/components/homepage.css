@@ -92,6 +92,11 @@ img {
     line-height: 30px;
 }
 
+.topic-tab {
+    margin: 0 10px;
+    color: #80bd01;
+}
+
 .last-time {
     height: 18px;
     width: 18px;
