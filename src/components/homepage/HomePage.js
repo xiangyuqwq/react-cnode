@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Suspense } from "react";
 import { Link } from "react-router-dom";
-import api from "../api";
+import api from "../../api";
 import TopicHeader from "./TopicHeader";
 import "./homepage.css";
 

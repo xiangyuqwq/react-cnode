@@ -4,11 +4,11 @@ import Api from "./components/nav/Api";
 import GetStart from "./components/nav/GetStart";
 import Login from "./components/nav/Login";
 import Abouts from "./components/nav/Abouts";
-import Sidebar from "./components/Sidebar";
-import Footer from "./components/Footer";
-import Nav from "./components/Nav";
-import HomePage from "./components/HomePage";
-import Topic from "./components/Topic";
+import Sidebar from "./components/sider/Sidebar";
+import Footer from "./components/footer/Footer";
+import Nav from "./components/nav/Nav";
+import HomePage from "./components/homepage/HomePage";
+import Topic from "./components/homepage/Topic";
 import "./App.css";
 
 export default function App() {

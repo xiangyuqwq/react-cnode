@@ -6,7 +6,7 @@ export default function Nav() {
     <div className="Nav">
       <div className="navbar">
         <div className="logo">
-          <img src={require("../assets/img/logo.png")} alt="logo" />
+          <img src={require("../../assets/img/logo.png")} alt="logo" />
         </div>
         <ul className="navcontain nav" style={{float: 'right'}}>
           <li>
@@ -21,7 +21,6 @@ export default function Nav() {
           <li>
             <Link to="/about">关于</Link>
           </li>
-          
           <li>
             <Link to="/login">登录</Link>
           </li>
