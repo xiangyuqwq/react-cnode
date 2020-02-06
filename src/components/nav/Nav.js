@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 export default function Nav() {
   return (
     <div className="Nav">
-      <div className="navbar">
+      <div className="navbar" style={{width: "90%"}}>
         <div className="logo">
           <img src={require("../../assets/img/logo.png")} alt="logo" />
         </div>

@@ -14,27 +14,27 @@ export default function Login() {
         </ul>
       </div>
       <div className="inner topic">
-      <form id='signin_form' class='form-horizontal' action='/signin' method='post'>
-        <div class='control-group'>
-          <label class='control-label' for='name'>用户名</label>
+      <form id='signin_form' className='form-horizontal' action='/signin' method='post'>
+        <div className='control-group'>
+          <label className='control-label' htmlFor='name'>用户名</label>
 
-          <div class='controls'>
-            <input class='input-xlarge' id='name' name='name' size='30' type='text'/>
+          <div className='controls'>
+            <input className='input-xlarge' id='name' name='name' size='30' type='text'/>
           </div>
         </div>
-        <div class='control-group'>
-          <label class='control-label' for='pass'>密码</label>
+        <div className='control-group'>
+          <label className='control-label' htmlFor='pass'>密码</label>
 
-          <div class='controls'>
-            <input class='input-xlarge' id='pass' name='pass' size='30' type='password'/>
+          <div className='controls'>
+            <input className='input-xlarge' id='pass' name='pass' size='30' type='password'/>
           </div>
         </div>
         <input type='hidden' name='_csrf' value='nourvELC-RIIrdCETTSwJO7-IOOh_qKWlkBc'/>
 
-        <div class='form-actions'>
-          <input type='submit' class='span-primary' value='登录'/>
+        <div className='form-actions'>
+          <input type='submit' className='span-primary' value='登录'/>
           <a href="/auth/github">
-            <span class="span-info">
+            <span className="span-info">
               通过 GitHub 登录
             </span>
           </a>

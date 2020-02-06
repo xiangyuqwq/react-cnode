@@ -9,11 +9,12 @@ import Footer from "./components/footer/Footer";
 import Nav from "./components/nav/Nav";
 import HomePage from "./components/homepage/HomePage";
 import Topic from "./components/homepage/Topic";
+import history from './history'
 import "./App.css";
 
 export default function App() {
   return (
-    <Router>
+    <Router history={history}>
       <Nav />
       <div className="main">
         <Sidebar />
@@ -21,6 +22,7 @@ export default function App() {
           <Switch>
             <Route path="/" exact component={HomePage} />
             <Route path="/tab/:type" component={HomePage} />
+            <Route path="/tab/:type/:page" component={HomePage} />
             <Route path="/api" component={Api} />
             <Route path="/getstart" component={GetStart} />
             <Route path="/about" component={Abouts} />

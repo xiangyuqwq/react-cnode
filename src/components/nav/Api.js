@@ -1,10 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import api from "../../api";
-import "../../assets/css/style.css"
 
 export default function Api() {
-  api.get("topics?tab=good").then(res => {
+  api.get("topics?tab=all&page=2").then(res => {
     console.log(res.data);
   });
 

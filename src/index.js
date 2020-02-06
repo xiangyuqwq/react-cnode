@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import api from './api'
 import axios from 'axios'
 import _ from 'lodash'
+import "./assets/css/style.css"
 
 window._ = _
 window.api = api
