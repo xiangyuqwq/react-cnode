@@ -1,7 +1,7 @@
 import React from "react";
 import api from "../../api";
 import moment from "moment";
-// import './topic.css'
+import './topic.css'
 
 export default class Topic extends React.Component {
   constructor(props) {

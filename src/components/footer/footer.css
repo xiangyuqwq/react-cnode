@@ -1,0 +1,38 @@
+@media (max-width: 979px) {
+    #footer {
+        margin: 0 5px 5px;
+    }
+    #footer_main {
+        width: 100%;
+        min-width: 0;
+        display: none;
+    }
+}
+
+#footer {
+    clear: both;
+    background: #fff;
+    position: relative;
+}
+
+#footer_main {
+    width: 90%;
+    max-width: 1400px;
+    min-width: 960px;
+    margin: 0 auto;
+    color: #e2e2e2;
+    padding: 20px 0;
+    font-size: 13px;
+    line-height: 2em;
+}
+
+#footer_main .col_fade p {
+    line-height: 20px;
+    vertical-align: bottom;
+    font-size: 14px;
+    word-break: break-word;
+}
+
+.col_fade {
+    color: #ababab;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import "./sider.css";
+import "./sider.css";
 
 export default function Sidebar() {
   return (
