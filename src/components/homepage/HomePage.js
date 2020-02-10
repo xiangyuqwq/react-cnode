@@ -1,13 +1,10 @@
 import React, { useState, useEffect, Suspense } from "react";
 import { Link } from "react-router-dom";
 import api from "../../api";
-import TopicHeader from "./TopicHeader";
-// import Pagination from "./Pagination";
 import "./homepage.css";
-import 'antd/dist/antd.css';
-import history from '../../history'
-import { Pagination } from 'antd';
-
+import "antd/dist/antd.css";
+import history from "../../history";
+import { Pagination } from "antd";
 
 function TopicItem({ item }) {
   return (
@@ -56,46 +53,92 @@ function tabDomType(item) {
   }
 }
 
-
-
 export default function HomePage(props) {
   var [tabType, setTabType] = useState("");
   var [list, setList] = useState([]);
+  var [page, setPage] = useState(1);
 
   useEffect(() => {
     const type = props.match.params.type;
-    setTabType(type);
     // console.log(type)
-    if (type) {
-      api.get(`/topics?tab=${type}`).then(res => {
-        setList(res.data.data);
-      });
-    } else {
-      api.get(`/topics?tab=all`).then(res => {
-        setList(res.data.data);
-      });
-    }
-  }, [props, tabType]);
+    api.get(`/topics?tab=${type}&page=${page}`).then(res => {
+      setList(res.data.data);
+    });
+  }, [props, page]);
 
   function onChange(pageNumber) {
-    const type = props.match.params.type
-    api.get(`/topics?tab=${type}&page=${pageNumber}`).then(res => {
-      setList(res.data.data)
-      if(type) {
-        history.push({
-          pathname: `/tab/${type}/${pageNumber}`
-        })
-      }else {
-        history.push({
-          pathname: `/tab/all/${pageNumber}`
-        })
-      }
-    })
+    const type = props.match.params.type;
+    setPage(pageNumber);
+    if (type) {
+      history.push({
+        pathname: `/tab/${type}/${pageNumber}`
+      });
+    } else {
+      history.push({
+        pathname: `/tab/all/${pageNumber}`
+      });
+    }
   }
+
 
   return (
     <div className="panel">
-      <TopicHeader />
+      <div className="header">
+        <Link
+          to="/tab/all"
+          className={
+            tabType === "all" || "" ? "topic-tab current-tab" : "topic-tab"
+          }
+          onClick={() => {
+            setTabType("all");
+            setPage(1);
+          }}
+        >
+          全部
+        </Link>
+        <Link
+          to="/tab/good"
+          className={tabType === "good" ? "topic-tab current-tab" : "topic-tab"}
+          onClick={() => {
+            setTabType("good");
+            setPage(1);
+          }}
+        >
+          精华
+        </Link>
+        <Link
+          to="/tab/share"
+          className={
+            tabType === "share" ? "topic-tab current-tab" : "topic-tab"
+          }
+          onClick={() => {
+            setTabType("share");
+            setPage(1);
+          }}
+        >
+          分享
+        </Link>
+        <Link
+          to="/tab/ask"
+          className={tabType === "ask" ? "topic-tab current-tab" : "topic-tab"}
+          onClick={() => {
+            setTabType("ask");
+            setPage(1);
+          }}
+        >
+          问答
+        </Link>
+        <Link
+          to="/tab/job"
+          className={tabType === "job" ? "topic-tab current-tab" : "topic-tab"}
+          onClick={() => {
+            setTabType("job");
+            setPage(1);
+          }}
+        >
+          招聘
+        </Link>
+      </div>
       <div className="inner no-padding">
         <div className="topic_list">
           <Suspense fallback={<div>loading...</div>}>
@@ -105,7 +148,13 @@ export default function HomePage(props) {
           </Suspense>
         </div>
         <div className="pagination">
-          <Pagination showQuickJumper defaultCurrent={2} total={500} onChange={onChange} />
+          <Pagination
+            showQuickJumper
+            current={page}
+            defaultCurrent={1}
+            total={500}
+            onChange={onChange}
+          />
         </div>
       </div>
     </div>

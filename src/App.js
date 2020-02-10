@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, HashRouter as Router, } from "react-router-dom";
+import { Switch, Route, Router, Redirect } from "react-router-dom";
 import Api from "./components/nav/Api";
 import GetStart from "./components/nav/GetStart";
 import Login from "./components/nav/Login";
@@ -20,7 +20,7 @@ export default function App() {
         <Sidebar />
         <div className="content">
           <Switch>
-            <Route path="/" exact component={HomePage} />
+            <Route exact path='/' render={() => (<Redirect to='/tab/all' />)} />
             <Route path="/tab/:type" component={HomePage} />
             <Route path="/tab/:type/:page" component={HomePage} />
             <Route path="/api" component={Api} />
